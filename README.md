@@ -13,7 +13,7 @@
 
 1. Everything from [Scala Browser Plugin Config](https://github.com/SgtSwagrid/scala-browser-plugin-config), including reasonable [Scalafmt](https://scalameta.org/scalafmt/) settings, CI pipelines for build integrity, and some IDE config.
 2. [Omnibrowser](https://github.com/SgtSwagrid/omnibrowser), with which the plugin is written in Scala against a typed model of the browser, and which builds it for Chrome and Firefox.
-3. Automatic packaging of each release for every browser, ready for its store.
+3. Automatic packaging of each release for every browser, and its publication to the [Chrome Web Store](https://chromewebstore.google.com/) and [Firefox Add-ons](https://addons.mozilla.org/).
 4. An example plugin with a test, example build configuration, and setup instructions.
 
 ## 🔨 How to use this template
@@ -50,6 +50,8 @@ Add the following secrets to your repository on GitHub, to allow the automated w
 |---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `GH_TOKEN`                | A GitHub [PAT](https://github.com/settings/personal-access-tokens) with read and write access to the contents, pull requests and administration of your repository. |
 | `CLAUDE_CODE_OAUTH_TOKEN` | OAuth token from `claude setup-token`, for [Claude Code](https://claude.com/product/claude-code) agentic workflows (optional).                                      |
+| `CHROME_PUBLISHER_ID`, `CHROME_CLIENT_ID`, `CHROME_CLIENT_SECRET`, `CHROME_REFRESH_TOKEN` | Your publisher ID in the Chrome Web Store, and an OAuth client with access to its API, for publishing there (optional, see [step 6](#6-publish-your-plugin-to-the-stores)). |
+| `AMO_API_KEY`, `AMO_API_SECRET` | Your [API credentials](https://addons.mozilla.org/developers/addon/api/key/) for Firefox Add-ons, for publishing there (optional, see [step 6](#6-publish-your-plugin-to-the-stores)). |
 
 Secrets can be added from the GitHub web interface by navigating as follows from your repository's page:
 
@@ -58,7 +60,14 @@ Secrets can be added from the GitHub web interface by navigating as follows from
 ### 5. Release your plugin
 
 To release version `1.2.3`, go to **Releases → Draft a new release**, create the tag `v1.2.3`, and click **Publish release**.
-The plugin is then packaged for each browser, and the zips are attached to the release, ready to be uploaded to the [Chrome Web Store](https://chrome.google.com/webstore/devconsole) and [Firefox Add-ons](https://addons.mozilla.org/developers/).
+The plugin is then packaged for each browser, and the zips are attached to the release.
+
+### 6. Publish your plugin to the stores
+
+Submit the first version to the [Chrome Web Store](https://chrome.google.com/webstore/devconsole) and [Firefox Add-ons](https://addons.mozilla.org/developers/) by hand, from the zips attached to its release, and set up its listing in each.
+Then add the variable naming the plugin in each store (`CHROME_EXTENSION_ID`, `FIREFOX_ADDON_SLUG`), and the secrets from [step 4](#4-add-repository-secrets).
+From then on, each release is submitted to the stores automatically, and published once it passes their review.
+See [CONTRIBUTING.md](CONTRIBUTING.md#-publishing-workflow) for the details.
 
 ## 👮‍♂️ License
 
