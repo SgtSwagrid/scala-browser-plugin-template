@@ -1,0 +1,6 @@
+// SBT plugins common to all of my Scala browser plugins.
+// Automatically synchronised from 'https://github.com/SgtSwagrid/scala-browser-plugin-config/'.
+
+// For naming each version after the git tag it is released under (v1.2.3 is 1.2.3).
+// https://github.com/sbt/sbt-dynver
+addSbtPlugin("com.github.sbt" % "sbt-dynver" % "5.1.1")
