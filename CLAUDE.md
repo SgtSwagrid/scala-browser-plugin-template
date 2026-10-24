@@ -23,6 +23,10 @@ This is a Scala browser plugin that does ...
 
 - A `/*` in a comment, as in a match pattern like `https://*/*`, opens a nested comment in Scala.
 - On Windows, if `sbt` cannot start its server, run it with `sbt --server`.
+- Tests run in Node, which has no DOM, and `FakeBrowser`'s pages are stand-ins without one.
+  So code in a content script or page that touches the DOM cannot run in a test: keep DOM access in thin objects, and the logic that can be tested apart from it.
+- Scala.js links for ES2015 by default, under which `java.util.regex` rejects patterns that need ES2018, such as Unicode classes like `\p{L}`.
+  Use `js.RegExp(pattern, "u")` for these instead.
 
 ## Instructions
 
