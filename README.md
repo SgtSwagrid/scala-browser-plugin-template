@@ -109,6 +109,8 @@ Download the zip for your browser from the [latest release](https://github.com/S
 - **Chrome:** unzip it, open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, and choose the unzipped folder.
 - **Firefox:** open `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on…**, and choose the zip.
 
+On **Firefox for Android**, install it from [Firefox Add-ons](https://addons.mozilla.org/android/) instead, once it is listed there.
+
 ## 💻 Local development
 
 You'll need [sbt](https://www.scala-sbt.org/), [JDK 21](https://adoptium.net/) and [Node.js](https://nodejs.org/).
