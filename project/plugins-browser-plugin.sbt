@@ -10,3 +10,5 @@ addSbtPlugin("com.github.sbt" % "sbt-dynver" % "5.1.1")
 // library and testkit to each plugin, at its own version.
 // https://github.com/SgtSwagrid/omnibrowser
 addSbtPlugin("com.alecdorrington" % "sbt-omnibrowser" % "0.3.0")
+
+// Being re-synced with Scala Browser Plugin Config; the next PR restores its exact content.
