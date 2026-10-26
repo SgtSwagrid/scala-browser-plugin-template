@@ -14,6 +14,9 @@ Keep it concise and actionable.
 This is a Scala browser plugin that does ...
 
 - It is written with [Omnibrowser](https://github.com/SgtSwagrid/omnibrowser): one object extending `BrowserExtension` defines the plugin, and the `sbt-omnibrowser` plugin (added by the synced `project/plugins-browser-plugin.sbt`) compiles it to JavaScript with Scala.js and lays it out for Chrome and Firefox.
+- Its parts are methods: `background()`, `contentScripts()`, `popup()` and `options()`.
+  Content scripts load a bundle of their own, holding only what `contentScripts()` and the extension object's own vals reach.
+  So keep what only the background or a page needs inside its method, or in an object of its own, not in a val on the extension object.
 - `sbt omnibrowserBuild` builds it unpacked, for development, under `target/**/omnibrowser/development/<browser>/`, which a browser can load as it is.
   `sbt omnibrowserPackage` zips it for release, under `target/**/omnibrowser/release/`.
 - Files in `src/main/extension`, such as icons, are copied into the plugin as they are.
