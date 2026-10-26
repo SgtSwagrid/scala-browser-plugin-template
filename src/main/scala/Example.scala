@@ -17,7 +17,7 @@ object Example extends BrowserExtension[Storage]:
   /** How many times the toolbar button has been clicked. */
   val clicks = StorageKey.local[Int]("clicks", 0)
 
-  override val background = Background(onActionClicked((_, browser) =>
+  override def background() = Background(onActionClicked((_, browser) =>
     browser
       .storage
       .update(clicks)(_ + 1)
