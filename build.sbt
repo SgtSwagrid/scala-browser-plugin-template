@@ -14,14 +14,17 @@ scalacOptions ++= Seq(
   "-explain-cyclic",
 )
 
-// Omnibrowser adds its own library, and its testkit for the tests, itself.
+// Omnibrowser adds only its own library, so the tests add its testkit.
 lazy val `scala-browser-plugin-template` = project
   .in(file("."))
   .enablePlugins(OmnibrowserPlugin, ScalaUnidocPlugin)
   .settings(
     packagePrefix := "com.alecdorrington",
-    libraryDependencies +=
+    libraryDependencies ++= Seq(
+      "com.alecdorrington" %% "omnibrowser-testkit" % omnibrowserVersion.value %
+        Test,
       "org.typelevel" %% "munit-cats-effect" % "2.2.1" % Test,
+    ),
     ScalaUnidoc / unidoc / scalacOptions ++= Seq(
       "-project",
       "Scala Browser Plugin Template",
