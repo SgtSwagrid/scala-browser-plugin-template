@@ -94,9 +94,10 @@ The most important thing to know is that many of the configuration files are aut
   <h1>✨ My Plugin</h1>
   <p>A very cool browser plugin that does something great.</p>
 
-  <!-- Update the following URL to show live build status in your README. -->
+  <!-- Update the following URLs to show live build status and the latest release in your README. -->
   <span>
     <a href="https://github.com/SgtSwagrid/scala-browser-plugin-template/actions/workflows/build-integrity.yml"><img src="https://github.com/SgtSwagrid/scala-browser-plugin-template/actions/workflows/build-integrity.yml/badge.svg" alt="Build status" /></a>
+    <a href="https://github.com/SgtSwagrid/scala-browser-plugin-template/releases/latest"><img src="https://img.shields.io/github/v/release/SgtSwagrid/scala-browser-plugin-template" alt="Latest release" /></a>
   </span>
 
 </div>
