@@ -5,13 +5,21 @@ import sbt.Keys._
 import sbtunidoc.BaseUnidocPlugin.autoImport.*
 import sbtunidoc.ScalaUnidocPlugin
 
-ThisBuild / scalaVersion := "3.9.0"
+ThisBuild / scalaVersion := "3.10.1"
 ThisBuild / organization := "com.alecdorrington"
 
 scalacOptions ++= Seq(
   "-explain",
   "-explain-types",
   "-explain-cyclic",
+
+  // Enable new experimental features:
+  "-language:experimental.subCases",
+  "-language:experimental.multiSpreads",
+  "-language:experimental.erasedDefinitions",
+
+  // Enable preview features, such as relaxed lambda syntax:
+  "-preview",
 )
 
 // Omnibrowser adds only its own library, so the tests add its testkit.
